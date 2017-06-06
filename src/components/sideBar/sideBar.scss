@@ -1,0 +1,89 @@
+.sideBar {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 40px;
+  background-color: #333;
+  color: #fff;
+  transition: margin 0.3s;
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+    transition: margin 0.5s;
+
+    &:hover{
+      &::after, &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background-color: red;
+        animation: psyBorder 1s;
+        animation-fill-mode: forwards;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  h2 {
+    font-size: 2.4em;
+    letter-spacing: 1px;
+    margin: 30px 0;
+  }
+
+  li {
+    width: 70%;
+    margin: 20px 0;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    position: relative;
+  }
+
+  .current {
+    margin-left: 20px;
+
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      background-color: red;
+      animation: psyBorder 1s;
+      animation-fill-mode: forwards;
+    }
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+}
+
+@keyframes psyBorder {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
