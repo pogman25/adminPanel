@@ -2,7 +2,7 @@ import React from 'react';
 
 const Error = () => (
     <div>
-        <h2>No page</h2>
+        <h2>No Page</h2>
     </div>
 );
 

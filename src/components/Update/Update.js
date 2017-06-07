@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import uuidV1 from 'uuid/v1';
-import './add.scss';
 
-class Add extends Component {
+class Update extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             name: '',
             age: '',
             phone: '',
@@ -14,23 +13,24 @@ class Add extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.choose = this.choose.bind(this);
     }
 
 
     handleSubmit(event) {
         event.preventDefault();
-        const { addPerson } = this.props.pageActions;
-        const { name, age, phone } = this.state;
+        const { updPerson } = this.props.pageActions;
+        const { id, name, age, phone } = this.state;
 
         if(name.trim() && age && phone.trim()) {
-            const id = uuidV1();
-            addPerson({
+            updPerson({
                 id,
                 name,
                 age,
                 phone
             });
             this.setState({
+                id: '',
                 name: '',
                 age: '',
                 phone: '',
@@ -38,7 +38,7 @@ class Add extends Component {
             })
 
         } else {
-            this.setState({error: true});
+            this.setState({error: true})
             console.error('Fill all forms');
         }
     };
@@ -50,6 +50,15 @@ class Add extends Component {
 
         this.setState({
             [name]: value
+        });
+    }
+
+    choose(id, name, age, phone) {
+        this.setState({
+            id,
+            name,
+            age,
+            phone
         });
     }
 
@@ -80,13 +89,21 @@ class Add extends Component {
                         placeholder="Phone"
                         onChange={this.handleChange}
                     /><label htmlFor="phone">Phone</label>
-                    <input type="submit" value="Add Person"/>
+                    <input type="submit" value="Update form"/>
                 </form>
                 {this.state.error && <span>Fill all Forms</span>}
                 <div className="usersList">
                     <ul>
+                        <li>
+                            <h2>Name</h2>
+                            <p>Age</p>
+                            <p>Phone number</p>
+                        </li>
                         {users.map( ({id, name, age, phone}) => (
-                            <li key={id}>
+                            <li key={id}
+                                onClick={() => this.choose(id, name, age, phone)}
+                                className={this.state.id === id ? 'active' : ''}
+                            >
                                 <h2>{name}</h2>
                                 <p>{age}</p>
                                 <p>{phone}</p>
@@ -99,4 +116,4 @@ class Add extends Component {
     }
 }
 
-export default Add;
+export default Update;

@@ -8,7 +8,11 @@ const Delete = ({users, pageActions}) => {
     };
 
     return (
+    <div className="usersList">
         <ul>
+            <li>
+                <h2>Name</h2>
+            </li>
             {users.map( ({id, name}) => (
                 <li key={id}>
                     <h2>{name}</h2>
@@ -16,6 +20,7 @@ const Delete = ({users, pageActions}) => {
                 </li>
             ))}
         </ul>
+    </div>
     )
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/content/Home';
 import User from './containers/users/users';
-import System from './components/content/system';
+import Update from './containers/update/update';
 import Add from './containers/add/add';
 import Delete from './containers/delete/delete';
 
@@ -29,7 +29,7 @@ const routes = [
     {
         id: 5,
         path:'update',
-        component: System
+        component: Update
     },
     {
         id: 6,

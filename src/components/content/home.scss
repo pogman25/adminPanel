@@ -1,0 +1,43 @@
+.homePage {
+
+  p {
+    margin: 20px auto;
+  }
+
+  ul {
+    list-style: circle;
+    margin: 0 auto;
+    width: 50%;
+    p {
+      font-size: 2.2em;
+    }
+  }
+
+  li {
+    opacity: 0;
+    font-size: 1.8em;
+    margin: 10px 20px;
+    text-align: left;
+    animation-name: appearing;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+    @for $i from 2 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.3333 }s;
+      }
+    }
+  }
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+    margin: 10px 0;
+  }
+
+  100% {
+    opacity: 1;
+    margin: 10px 20px;
+  }
+}

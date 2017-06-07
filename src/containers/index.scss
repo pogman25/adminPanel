@@ -5,7 +5,10 @@
 
 
   .innerContent {
-    margin-top: 30px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    padding-top: 30px;
     flex-grow: 12;
     flex-shrink: 1;
     flex-basis: 0;
@@ -29,27 +32,68 @@
 }
 
 .fade-enter {
+  position: absolute;
+  top: -50px;
   opacity: 0;
-  transform: translateY(-50px);
-
   z-index: 1;
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transform: rotateZ(0) translateY(0);
-  transition: all 0.5s ease-in;
+  top: 30px;
+  transition: all 0.3s ease-in;
 }
 
 .fade-leave {
+  position: absolute;
   transform-origin: 0 100%;
-  transform: translateY(0) rotateZ(0deg);
+  top: 30px;
+  transform: rotateZ(0deg);
   opacity: 1;
   z-index: 2;
 }
 
 .fade-leave.fade-leave-active {
-  transform: rotateZ(45deg) translateY(-50px);
+  top: 50px;
+  transform: rotateZ(45deg);
   opacity: 0;
   transition: all 0.5s ease-in;
+}
+
+.usersList {
+
+  ul {
+
+    li {
+      display: flex;
+      align-items: baseline;
+      padding: 10px 0;
+      border-left: 1px solid #bbb;
+      border-right: 1px solid #bbb;
+
+      h2 {
+        flex-grow: 3;
+        flex-basis: 0;
+      }
+
+      p {
+        flex-grow: 2;
+        flex-basis: 0;
+        border-left: 1px solid #bbb;
+      }
+
+      &:first-child {
+        padding: 20px 0;
+        border-top: 1px solid #bbb;
+        border-bottom: 1px solid #bbb;
+      }
+      &:last-child {
+        border-bottom: 1px solid #bbb;
+      }
+    }
+
+    .active {
+      background-color: #444;
+    }
+  }
 }

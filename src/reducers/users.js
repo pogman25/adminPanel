@@ -1,4 +1,4 @@
-import { ADD_PERSON, DEL_PERSON } from '../constants/constants';
+import { ADD_PERSON, DEL_PERSON, UPD_PERSON } from '../constants/constants';
 
 const init = [
     {
@@ -43,6 +43,13 @@ export const users = (state=init, action) => {
             return [
                 ...state.slice(0, index),
                 ...state.slice(index+1)
+            ];
+        case UPD_PERSON:
+            const id = state.findIndex( i => i.id === action.payload.id);
+            return [
+                ...state.slice(0, id),
+                action.payload,
+                ...state.slice(id+1)
             ];
         default:
             return state;
