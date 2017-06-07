@@ -42,7 +42,6 @@ module.exports = Merge(commonConfig, {
                 allChunks: true}),
 
             new webpack.optimize.UglifyJsPlugin({
-                sourceMap: true,
                 compress: {
                     screw_ie8: true, // React doesn't support IE8
                     warnings: false
@@ -56,4 +55,4 @@ module.exports = Merge(commonConfig, {
                 }
             })
         ]
-    })
+    });
