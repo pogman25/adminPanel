@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { sideBar } from './sideBar'
+import { users } from './users'
 
 const reducer = combineReducers({
-    sideBar
+    users
 });
 
 export default reducer;

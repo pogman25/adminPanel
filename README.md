@@ -1,4 +1,4 @@
-Webpack 2, Redux, React, React-Redux
+Webpack 2, Redux, React, React-Redux, React-Router
 
 install
 ## npm install

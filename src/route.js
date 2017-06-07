@@ -1,8 +1,9 @@
 import React from 'react';
 import Home from './components/content/Home';
-import User from './components/content/user';
+import User from './containers/users/users';
 import System from './components/content/system';
-import Image from './components/content/image';
+import Add from './containers/add/add';
+import Delete from './containers/delete/delete';
 
 const routes = [
     {
@@ -23,12 +24,17 @@ const routes = [
     {
         id: 4,
         path:'add',
-        component: Image
+        component: Add
     },
     {
         id: 5,
         path:'update',
         component: System
+    },
+    {
+        id: 6,
+        path:'delete',
+        component: Delete
     }
 ];
 
