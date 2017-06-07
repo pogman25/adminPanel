@@ -31,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|svg|gif)$/,   //обработчик изображений
-                use: 'file-loader?name=images/[name].[ext]'
+                use: 'file-loader?name=img/[name].[ext]'
             }
         ]
     },
