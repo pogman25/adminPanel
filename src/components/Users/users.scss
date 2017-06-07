@@ -1,0 +1,16 @@
+.usersList.users {
+
+  ul {
+    li {
+      &:first-child {
+        padding: 20px 0;
+        border-top: 1px solid #bbb;
+        border-bottom: 1px solid #bbb;
+
+        h2, p {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

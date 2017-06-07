@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uuidV1 from 'uuid/v1';
-import './add.scss';
 
 class Add extends Component {
     constructor(props) {
@@ -65,26 +65,32 @@ class Add extends Component {
                         value={this.state.name}
                         placeholder="Name"
                         onChange={this.handleChange}
-                    /><label htmlFor="name">Name</label>
+                    />
                     <input
+                        min="18"
                         name="age"
                         type="number"
                         value={this.state.age}
                         placeholder="Age"
                         onChange={this.handleChange}
-                    /><label htmlFor="age">Age</label>
+                    />
                     <input
                         name="phone"
                         type="text"
                         value={this.state.phone}
                         placeholder="Phone"
                         onChange={this.handleChange}
-                    /><label htmlFor="phone">Phone</label>
+                    />
                     <input type="submit" value="Add Person"/>
                 </form>
                 {this.state.error && <span>Fill all Forms</span>}
                 <div className="usersList">
                     <ul>
+                        <li>
+                            <h2>Name</h2>
+                            <p>Age</p>
+                            <p>Phone number</p>
+                        </li>
                         {users.map( ({id, name, age, phone}) => (
                             <li key={id}>
                                 <h2>{name}</h2>
@@ -98,5 +104,10 @@ class Add extends Component {
         )
     }
 }
+
+Add.PropTypes = {
+    users: PropTypes.array.isRequired,
+    pageActions: PropTypes.func.isRequired
+};
 
 export default Add;

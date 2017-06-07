@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Update extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Update extends Component {
             })
 
         } else {
-            this.setState({error: true})
+            this.setState({error: true});
             console.error('Fill all forms');
         }
     };
@@ -74,21 +75,22 @@ class Update extends Component {
                         value={this.state.name}
                         placeholder="Name"
                         onChange={this.handleChange}
-                    /><label htmlFor="name">Name</label>
+                    />
                     <input
+                        min="18"
                         name="age"
                         type="number"
                         value={this.state.age}
                         placeholder="Age"
                         onChange={this.handleChange}
-                    /><label htmlFor="age">Age</label>
+                    />
                     <input
                         name="phone"
                         type="text"
                         value={this.state.phone}
                         placeholder="Phone"
                         onChange={this.handleChange}
-                    /><label htmlFor="phone">Phone</label>
+                    />
                     <input type="submit" value="Update form"/>
                 </form>
                 {this.state.error && <span>Fill all Forms</span>}
@@ -116,4 +118,10 @@ class Update extends Component {
     }
 }
 
+Update.PropTypes = {
+    users: PropTypes.array.isRequired,
+    pageActions: PropTypes.func.isRequired
+};
+
 export default Update;
+
